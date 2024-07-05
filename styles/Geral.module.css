@@ -1,0 +1,73 @@
+
+.navbar{
+    background-color: #c1121f;
+    height: 50px;
+    display: flex;
+    padding: 10px;
+
+}
+
+.lista_itens{
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+
+.lista_itens li{
+    margin-left: 10px;
+}
+
+.meuCard {
+    width: 300px;
+    height: 300px;
+    background-color: #fdf0d5;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #5454; 
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.imgCard{
+    max-width: 280px;
+    height: auto;
+}
+
+.imgPokedex{
+    max-width: 280px;
+    height: auto;
+}
+
+.pokedex{
+    background-color: #b40c17;
+    width: 500px;
+    height: 800px;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    float: right;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #fdf0d5;
+    transition: right 0.3s ease-in-out;
+    
+}
+
+.pokedex.visible {
+    right: 0;
+}
+
+.pokemon.hidden {
+    right: -90%;
+}
