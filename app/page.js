@@ -64,26 +64,33 @@ const pokemons = [
 export default function Home() {
 
   const [isVisible, setIsVisible] = useState(false);
-  const [pokemonSelected, setPokemonSelected] = useState();
+  const [pokemonSelected, setPokemonSelected] = useState({nome: '', descricao: '', url: ''});
 
   const toggleDiv = () => {
     setIsVisible(!isVisible);
   };
 
+  const handleMouseEnter = (pokemon) => {
+    // alert("mouseEntering");
+    setPokemonSelected({nome: pokemon.nome, descricao: pokemon.descricao, url: pokemon.url});
+  }
+
   return (
     <>
       <Navbar></Navbar>
-      {/* <button onClick={toggleDiv}>Toggle Div</button>   */}
+      <button onClick={toggleDiv}>Toggle Div</button>  
       
       <div className={styles.mainContent}>
       
         {
           pokemons.map((pokemon)=>(
+            <div onMouseOver={() => handleMouseEnter(pokemon)} > 
             <Card nome={pokemon.nome} descricao={pokemon.descricao.slice(0, 60)+"..."} imagem={pokemon.url} />
+            </div>
           ))
         }
       
-        <Pokedex classe={isVisible ? 'visible': 'hidden'} nome="Bulbassaur" descricao="lorem ipsum sit amet"/>
+        <Pokedex classe={'visible'} nome={pokemonSelected.nome} descricao={pokemonSelected.descricao} url={pokemonSelected.url}/>
       </div>
     </>
   );
