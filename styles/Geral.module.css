@@ -21,13 +21,17 @@
     width: 300px;
     height: 300px;
     background-color: #fdf0d5;
-    border-radius: 10px;
+    border-radius: 10px; 
     box-shadow: 5px 5px 5px #5454; 
     margin-left: 15px;
     margin-right: 15px;
     margin-top: 30px;
     margin-bottom: 10px;
     padding: 10px;
+}
+
+.meuCard:hover{
+    background-color: aliceblue;
 }
 
 .mainContent {
@@ -51,17 +55,21 @@
 
 .pokedex{
     background-color: #b40c17;
-    width: 500px;
-    height: 800px;
-    position: absolute;
-    right: 0;
-    top: 50px;
-    float: right;
+    width: 600px;
+    height: 800px; 
+    /* right: 0;
+    top: 50px; */
+    float: right; 
     padding: 20px;
     border-radius: 5px;
     border: 1px solid #fdf0d5;
     transition: right 0.3s ease-in-out;
     
+}
+
+.parentDiv {
+    display: flex;
+    flex-direction: row;
 }
 
 .pokedex.visible {

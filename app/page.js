@@ -64,33 +64,34 @@ const pokemons = [
 export default function Home() {
 
   const [isVisible, setIsVisible] = useState(false);
-  const [pokemonSelected, setPokemonSelected] = useState({nome: '', descricao: '', url: ''});
+  const [pokemonSelected, setPokemonSelected] = useState({nome: '', descricao: '', url: '/images/interrogacao.jpg'});
 
   const toggleDiv = () => {
     setIsVisible(!isVisible);
   };
 
   const handleMouseEnter = (pokemon) => {
-    // alert("mouseEntering");
+    //Captura objeto ao passar mouse pelo Card e envia para componente Pokedex:
     setPokemonSelected({nome: pokemon.nome, descricao: pokemon.descricao, url: pokemon.url});
   }
 
   return (
     <>
-      <Navbar></Navbar>
-      <button onClick={toggleDiv}>Toggle Div</button>  
+      <Navbar></Navbar> 
+      <div className={styles.parentDiv}>
+        <div className={styles.mainContent}>
+          {
+            pokemons.map((pokemon)=>(
+              <div onMouseOver={() => handleMouseEnter(pokemon)} > 
+              <Card nome={pokemon.nome} descricao={pokemon.descricao.slice(0, 60)+"..."}  imagem={pokemon.url}/> 
+              {/* imagem={pokemon.url} */}
+              </div>
+            ))
+          }
+        </div>
+          <Pokedex classe={'visible'} nome={pokemonSelected.nome} descricao={pokemonSelected.descricao} url={pokemonSelected.url}/> 
+        {/* url={pokemonSelected.url} */}
       
-      <div className={styles.mainContent}>
-      
-        {
-          pokemons.map((pokemon)=>(
-            <div onMouseOver={() => handleMouseEnter(pokemon)} > 
-            <Card nome={pokemon.nome} descricao={pokemon.descricao.slice(0, 60)+"..."} imagem={pokemon.url} />
-            </div>
-          ))
-        }
-      
-        <Pokedex classe={'visible'} nome={pokemonSelected.nome} descricao={pokemonSelected.descricao} url={pokemonSelected.url}/>
       </div>
     </>
   );
